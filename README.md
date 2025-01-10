@@ -41,10 +41,13 @@ use Wapi2\WhatsAppClient;
 // Inicializar cliente
 $client = new WhatsAppClient('https://wapi2.com:3030', 'tu-token-de-acceso');
 
-// Enviar mensaje
+// Enviar mensaje de texto
 // Nota: El número debe incluir código de país sin el símbolo +
 // Ejemplo: 51999999999 (Perú)
 $response = $client->sendMessage('51999999999', '¡Hola desde WhatsApp!');
+
+// Enviar una imagen por URL
+$response = $client->sendImage('51999999999', 'https://picsum.photos/500/500.jpg', 'Mi imagen de prueba');
 ```
 
 ## Características Principales
@@ -60,8 +63,27 @@ $response = $client->sendMessage('51999999999', '¡Hola desde WhatsApp!');
 
 ### Mensajes
 - `sendMessage(string $phone, string $message)` - Envía mensaje de texto
-- `sendImage(string $phone, string $image, ?string $caption)` - Envía imagen
-- `sendPdf(string $phone, string $pdf, ?string $caption)` - Envía documento PDF
+- `sendImage(string $phone, string $image, ?string $caption)` - Envía imagen (acepta URL o cadena Base64)
+- `sendPdf(string $phone, string $pdf, ?string $caption)` - Envía documento PDF (acepta URL o cadena Base64)
+
+#### Formatos Soportados para Archivos
+
+Para los métodos `sendImage` y `sendPdf`, puedes enviar los archivos de dos formas:
+
+1. **URL directa**: 
+   ```php
+   $client->sendImage('51999999999', 'https://ejemplo.com/imagen.jpg', 'Mi imagen');
+   $client->sendPdf('51999999999', 'https://ejemplo.com/documento.pdf', 'Mi documento');
+   ```
+
+2. **Cadena Base64**:
+   ```php
+   $imageBase64 = base64_encode(file_get_contents('ruta/local/imagen.jpg'));
+   $client->sendImage('51999999999', $imageBase64, 'Mi imagen');
+   
+   $pdfBase64 = base64_encode(file_get_contents('ruta/local/documento.pdf'));
+   $client->sendPdf('51999999999', $pdfBase64, 'Mi documento');
+   ```
 - `sendLocation(string $phone, float $latitude, float $longitude, ?string $description)` - Envía ubicación
 
 ### Chats
