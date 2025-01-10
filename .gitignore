@@ -1,0 +1,61 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos específicos de IDEs y editores
+.idea/
+*.swp
+*.swo
+*.swn
+*.swm
+*.swd
+*.un~
+*.bak
+*.tmp
+.vscode/
+nbproject/
+
+# Archivos de dependencias
+/vendor/
+
+# Composer
+composer.lock
+
+# Logs y cachés
+*.log
+*.cache
+*.tmp
+
+# Archivos de configuración
+.env
+*.local.php
+
+# Cobertura de pruebas
+coverage/
+*.cov
+
+# Resultados de pruebas
+/tests/output/
+
+# Archivos de construcción
+/build/
+node_modules/
+
+# Otras configuraciones
+*.user.ini
+*.user
+*.sqlite
+*.sql
+*.sql.gz
+
+# Archivos temporales y de sistema
+*.tar.gz
+*.zip
+*.rar
+*.7z
+
+# Archivos personales
+*.crt
+*.pem
+*.key
+*.p12

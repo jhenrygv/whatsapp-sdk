@@ -1,0 +1,23 @@
+{
+    "name": "wapi2/whatsapp-sdk",
+    "description": "SDK for WhatsApp Web API",
+    "type": "library",
+    "require": {
+        "php": ">=7.4",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wapi2\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Wapi2.com",
+            "homepage": "https://wapi2.com"
+        }
+    ],
+    "license": "MIT"
+}
